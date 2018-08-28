@@ -36,7 +36,8 @@ public class DynamicDataSourceAspect {
      * @param point the point
      */
     @Before("daoAspect()")
-    public void switchDataSource(JoinPoint point) {
+    public void switchDataSource(JoinPoint point) {//getParameterNames()
+    	
         Boolean isQueryMethod = isQueryMethod(point.getSignature().getName());
         if (isQueryMethod) {
             DynamicDataSourceContextHolder.useSlaveDataSource();
